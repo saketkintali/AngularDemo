@@ -1,0 +1,24 @@
+ table {
+     width: 100%;
+ }
+
+ .col-1,.col-2 {
+
+     float: left;
+
+ }
+
+ .col-1 {
+     width: 60%;
+     background-color: #EEE;
+ }
+ .col-2 {
+     width: 40%;
+     background-color: #AAA;
+ }
+
+ tr:hover, tr.active {
+     cursor: pointer;
+     background-color: #555d68;
+     color: white;
+ }

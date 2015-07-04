@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myVer">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div ng-controller="HomeCtrl as hc">
+    <h1 ng-if="hc.selectedUser">Hello {{hc.selectedUser.name}}</h1>
+
+    <div class="col-1">
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="u in hc.users" ng-click="hc.selectedUser=u" ng-class="{true: 'active', false: ''}[hc.selectedUser==u]">
+                <td>{{u.name}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.phone}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-2" ng-show="hc.selectedUser">
+    <h2>More Details</h2>
+        <img ng-src="{{hc.selectedUser.imgUrl}}">
+        <p>Name: {{hc.selectedUser.name}}</p>
+        <p>Address: {{hc.selectedUser.address.street}}, {{hc.selectedUser.address.suite}}, {{hc.selectedUser.address.city}} - {{hc.selectedUser.address.zipcode}}</p>
+    </div>
+
+    <div class="col-2" ng-hide="hc.selectedUser">
+ <p>Please click the row for more details </p>
+    </div>
+
+</div>
+<script src="angular.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

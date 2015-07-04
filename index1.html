@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myVer1">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div ng-controller="HomeCtrl as hc">
+      <div>
+          <input type="text" ng-model="hc.newPerson.firstname" placeholder="First Name">
+          <input type="text" ng-model="hc.newPerson.lastname" placeholder="Last Name">
+          <input type="text" ng-model="hc.newPerson.city" placeholder="City">
+          <input type="text" ng-model="hc.newPerson.phone" placeholder="Phone">
+          <input type="text" ng-model="hc.newPerson.email" placeholder="Email">
+      </div>
+       <button type="submit" ng-click="hc.addPerson()">Add Person</button>
+    <hr>
+    <input type="search" placholder="Search Here" ng-model="hc.searchTxt">
+    <hr>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="u in hc.users | filter:hc.searchTxt">
+                <td>{{u.id}}</td>
+                <td>{{u.firstname}}</td>
+                <td>{{u.lastname}}</td>
+                <td>{{u.city}}</td>
+                <td>{{u.phone}}</td>
+                <td>{{u.email}}</td>
+                <td><button ng-click="hc.deletePerson($index)">Delete</button></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+<script src="angular.js"></script>
+<script src="app1.js"></script>
+</body>
+</html>
